@@ -14,4 +14,5 @@ export class GrupoUsuarioRelations {
     @PrimaryColumn({ name: 'cod_usuario' })
     @ManyToOne(() => User)
     @JoinColumn({ name: 'cod_usuario', referencedColumnName: 'idUsuario' })
-    user: User;}
+    user: User;
+}

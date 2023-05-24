@@ -10,4 +10,10 @@ export class PostController {
     const postList = this.postService.findUserPosts(userId);
     return postList;
   }
+
+  @Get(':userId/relateds')
+  async getPostsReletesByUser(@Param('userId') userId: number) {
+    const postList = this.postService.findPostsRelatedByUser(userId);
+    return postList;
+  }
 }

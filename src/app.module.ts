@@ -7,6 +7,14 @@ import { UserRelation } from './users/entity/UserRelation';
 import { TipoUsuario } from './users/entity/tipoUsuario';
 import { Post } from './users/entity/post';
 import { GrupoUsuarioRelations } from './users/entity/GrupoUsuariosRelations';
+import { ChallengeModule } from './challenge/challenge.module';
+import { Challenge } from './challenge/entity/Challenge';
+import { Task } from './challenge/entity/Task';
+import { ChallengeTasks } from './challenge/entity/ChallengeTasks';
+import { IngredientesModule } from './ingredientes/ingredientes.module';
+import { Ingredientes } from './ingredientes/entity/Ingredientes';
+import { Unidade } from './ingredientes/entity/Unidade';
+import { UserChallenges } from './challenge/entity/UserChallenges';
 
 @Module({
   imports: [
@@ -24,10 +32,18 @@ import { GrupoUsuarioRelations } from './users/entity/GrupoUsuariosRelations';
         User,
         Grupo,
         UserRelation,
+        Challenge,
+        Task,
+        ChallengeTasks,
+        UserChallenges,
+        Ingredientes,
+        Unidade,
       ],
       synchronize: false,
     }),
     UsersModule,
+    ChallengeModule,
+    IngredientesModule,
   ],
   controllers: [],
   providers: [],
