@@ -1,5 +1,5 @@
 /* eslint-disable prettier/prettier */
-import { Column, Entity, ManyToOne, PrimaryGeneratedColumn } from 'typeorm';
+import { Column, Entity, JoinColumn, OneToOne, PrimaryGeneratedColumn } from 'typeorm';
 import { Unidade } from './Unidade';
 
 @Entity({ name: 'tb_ingredientes' })
@@ -31,6 +31,7 @@ export class Ingredientes {
   @Column({ name: 'porcao_nutricional' })
   porcaoNutricional: number;
 
-  @ManyToOne(() => Unidade, unidade => unidade.ingredientes)
+  @OneToOne(() => Unidade)
+  @JoinColumn({name: 'cod_unidade', referencedColumnName: 'idUnidade'})
   unidade: Unidade;
 }

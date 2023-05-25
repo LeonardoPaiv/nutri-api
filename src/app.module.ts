@@ -15,6 +15,8 @@ import { IngredientesModule } from './ingredientes/ingredientes.module';
 import { Ingredientes } from './ingredientes/entity/Ingredientes';
 import { Unidade } from './ingredientes/entity/Unidade';
 import { UserChallenges } from './challenge/entity/UserChallenges';
+import { Recipe } from './ingredientes/entity/Recipe';
+import { RecipeIngredients } from './ingredientes/entity/RecipeIngredients';
 
 @Module({
   imports: [
@@ -38,6 +40,8 @@ import { UserChallenges } from './challenge/entity/UserChallenges';
         UserChallenges,
         Ingredientes,
         Unidade,
+        Recipe,
+        RecipeIngredients,
       ],
       synchronize: false,
     }),

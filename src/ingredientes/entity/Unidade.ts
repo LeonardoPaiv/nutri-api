@@ -1,6 +1,5 @@
 /* eslint-disable prettier/prettier */
-import { Column, Entity, PrimaryGeneratedColumn, OneToMany } from 'typeorm';
-import { Ingredientes } from './Ingredientes';
+import { Column, Entity, PrimaryGeneratedColumn } from 'typeorm';
 
 @Entity({ name: 'tb_unidade' })
 export class Unidade {
@@ -9,8 +8,4 @@ export class Unidade {
 
   @Column({ name: 'tx_unidade' })
   txUnidade: string;
-
-  @OneToMany(
-    () => Ingredientes, (ingredientes) => ingredientes.unidade)
-    ingredientes: Ingredientes[];
 }
