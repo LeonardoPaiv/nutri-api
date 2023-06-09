@@ -31,6 +31,7 @@ export class Ingredientes {
   @Column({ name: 'porcao_nutricional' })
   porcaoNutricional: number;
 
+  @Column({name: 'cod_unidade'})
   @OneToOne(() => Unidade)
   @JoinColumn({name: 'cod_unidade', referencedColumnName: 'idUnidade'})
   unidade: Unidade;

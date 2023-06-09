@@ -17,6 +17,19 @@ import { Unidade } from './ingredientes/entity/Unidade';
 import { UserChallenges } from './challenge/entity/UserChallenges';
 import { Recipe } from './ingredientes/entity/Recipe';
 import { RecipeIngredients } from './ingredientes/entity/RecipeIngredients';
+import { Utensilios } from './ingredientes/entity/Utensilios';
+import { CategoriaUtensilio } from './ingredientes/entity/CategoriaUtensilio';
+import { UtensilioCategoriaRelation } from './ingredientes/entity/UtensilioCategoriaRelation';
+import { UtensilioReceitas } from './ingredientes/entity/UtensilioReceitas';
+import { UserUtensils } from './ingredientes/entity/UserUtensilios';
+import { Pantry } from './users/entity/pantry';
+import { ShoppingList } from './users/entity/ShoppingList';
+import { ShoppingListIngredients } from './users/entity/ShoppingListIngredients';
+import { FoodPlanModule } from './food-plan/food-plan.module';
+import { FoodPlan } from './food-plan/entites/FoodPlan';
+import { DailyPlan } from './food-plan/entites/DailyPlan';
+import { Meals } from './food-plan/entites/Meals';
+import { MealsIngredients } from './food-plan/entites/MealsIngredients';
 
 @Module({
   imports: [
@@ -28,10 +41,17 @@ import { RecipeIngredients } from './ingredientes/entity/RecipeIngredients';
       username: 'root',
       password: 'root',
       entities: [
+        ShoppingListIngredients,
+        ShoppingList,
+        Utensilios,
+        CategoriaUtensilio,
+        UtensilioCategoriaRelation,
+        UtensilioReceitas,
         GrupoUsuarioRelations,
         Post,
         TipoUsuario,
         User,
+        UserUtensils,
         Grupo,
         UserRelation,
         Challenge,
@@ -42,12 +62,18 @@ import { RecipeIngredients } from './ingredientes/entity/RecipeIngredients';
         Unidade,
         Recipe,
         RecipeIngredients,
+        Pantry,
+        FoodPlan,
+        DailyPlan,
+        Meals,
+        MealsIngredients,
       ],
       synchronize: false,
     }),
     UsersModule,
     ChallengeModule,
     IngredientesModule,
+    FoodPlanModule,
   ],
   controllers: [],
   providers: [],

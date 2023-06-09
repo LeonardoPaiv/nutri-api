@@ -34,4 +34,20 @@ export class UsersController {
   async getUserFriends(@Param('userId') userId: number) {
     return this.userService.findFriends(userId);
   }
+
+  @Get('quantity-by-type')
+  async getQuantityUserByType() {
+    const lista = await this.userService.findQuantityForUserGroup();
+    return lista;
+  }
+
+  @Get(':userId/pantry')
+  async getAllIngredientsInPantry(@Param('userId') userId: number) {
+    const ingredientsList = this.userService.findUserIngredients(userId);
+    if (ingredientsList) {
+      return ingredientsList;
+    } else {
+      throw new HttpException('Empity Pantry', HttpStatus.BAD_REQUEST);
+    }
+  }
 }

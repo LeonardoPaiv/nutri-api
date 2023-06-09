@@ -3,6 +3,7 @@ import { Repository } from 'typeorm';
 import { User } from 'src/users/entity/user';
 import { InjectRepository } from '@nestjs/typeorm';
 import { UserRelation } from 'src/users/entity/UserRelation';
+import { Pantry } from 'src/users/entity/pantry';
 
 @Injectable()
 export class UsersService {
@@ -11,6 +12,8 @@ export class UsersService {
     private usersRepository: Repository<User>,
     @InjectRepository(UserRelation)
     private userRelationRepository: Repository<UserRelation>,
+    @InjectRepository(Pantry)
+    private pantryRepository: Repository<Pantry>,
   ) {}
 
   findAllUsers() {
@@ -38,5 +41,25 @@ export class UsersService {
     `;
     const result = await this.usersRepository.query(query);
     return result;
+  }
+
+  async findQuantityForUserGroup() {
+    const query = `
+    SELECT tipo.tipo, count(*) FROM 
+    tb_usuario tu  
+    JOIN tb_tipo_usuario tipo ON tipo.id_tipo_usuario = tu.cod_tipo_usuario
+    GROUP BY tu.cod_tipo_usuario;
+    `;
+    const result = await this.usersRepository.query(query);
+    return result;
+  }
+
+  async findUserIngredients(userId) {
+    const ingredientList = this.pantryRepository.find({
+      select: ['ingrediente', 'quantity'],
+      relations: { ingrediente: true },
+      where: { user: userId },
+    });
+    return ingredientList;
   }
 }

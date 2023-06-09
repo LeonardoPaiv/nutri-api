@@ -31,7 +31,7 @@ export class ChallengeController {
   }
 
   @Get(':usuarioId/desafios')
-  async getTeste(@Param('usuarioId') usuarioId: number) {
-    return this.challengeService.teste(usuarioId);
+  async getAllUserChallenges(@Param('usuarioId') usuarioId: number) {
+    return this.challengeService.findUserChallenges(usuarioId);
   }
 }

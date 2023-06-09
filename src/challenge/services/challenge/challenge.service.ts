@@ -30,7 +30,7 @@ export class ChallengeService {
     return listaDesafios;
   }
 
-  async teste(idUsuario) {
+  async findUserChallenges(idUsuario) {
     const listaTeste = this.userChallengesRepository.find({
       relations: { challengeTasks: { desafio: true, task: true } },
       where: { user: idUsuario },
