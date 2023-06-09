@@ -5,8 +5,10 @@ import {
   HttpStatus,
   Param,
 } from '@nestjs/common';
+import { ApiTags } from '@nestjs/swagger';
 import { ChallengeService } from 'src/challenge/services/challenge/challenge.service';
 
+@ApiTags('Challenges')
 @Controller('challenge')
 export class ChallengeController {
   constructor(private challengeService: ChallengeService) {}

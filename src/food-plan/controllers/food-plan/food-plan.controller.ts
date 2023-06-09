@@ -5,8 +5,10 @@ import {
   HttpStatus,
   Param,
 } from '@nestjs/common';
+import { ApiTags } from '@nestjs/swagger';
 import { FoodPlanService } from 'src/food-plan/services/food-plan/food-plan.service';
 
+@ApiTags('Food Plan')
 @Controller('food-plan')
 export class FoodPlanController {
   constructor(private foodPlanService: FoodPlanService) {}

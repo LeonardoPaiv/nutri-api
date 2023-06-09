@@ -5,8 +5,10 @@ import {
   HttpStatus,
   Param,
 } from '@nestjs/common';
+import { ApiTags } from '@nestjs/swagger';
 import { UtensiliosService } from 'src/ingredientes/services/utensilios/utensilios.service';
 
+@ApiTags('utensils')
 @Controller('utensilios')
 export class UtensiliosController {
   constructor(private utensiliosService: UtensiliosService) {}

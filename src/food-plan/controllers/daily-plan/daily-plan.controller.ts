@@ -5,8 +5,10 @@ import {
   HttpStatus,
   Param,
 } from '@nestjs/common';
+import { ApiTags } from '@nestjs/swagger';
 import { DailyPlanService } from 'src/food-plan/services/daily-plan/daily-plan.service';
 
+@ApiTags('Daily Plan')
 @Controller('daily-plan')
 export class DailyPlanController {
   constructor(private dailyPlanService: DailyPlanService) {}

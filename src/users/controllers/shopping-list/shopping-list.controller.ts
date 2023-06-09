@@ -5,8 +5,10 @@ import {
   HttpStatus,
   Param,
 } from '@nestjs/common';
+import { ApiTags } from '@nestjs/swagger';
 import { ShoppingListService } from 'src/users/services/shopping-list/shopping-list.service';
 
+@ApiTags('shopping')
 @Controller('shopping-list')
 export class ShoppingListController {
   constructor(private shoppingListService: ShoppingListService) {}

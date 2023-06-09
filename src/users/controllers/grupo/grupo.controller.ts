@@ -5,8 +5,10 @@ import {
   HttpStatus,
   Param,
 } from '@nestjs/common';
+import { ApiTags } from '@nestjs/swagger';
 import { GrupoService } from 'src/users/services/grupo/grupo.service';
 
+@ApiTags('grupo')
 @Controller('grupo')
 export class GrupoController {
   constructor(private grupoService: GrupoService) {}
